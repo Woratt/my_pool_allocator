@@ -94,10 +94,10 @@ bool Pool<T, SIZE>::testBit(size_t bit_index) {
   if (bit_index >= SIZE)
     return false;
 
-  size_t byte_offset = bit_index / BITS_IN_UINT8; // Визначаємо, в якому байті знаходиться біт
-  size_t bit_pos = bit_index % BITS_IN_UINT8;     // Залишок після ділення — позиція біта в байті
+  size_t byte_offset = bit_index / BITS_IN_UINT8; 
+  size_t bit_pos = bit_index % BITS_IN_UINT8;
 
-  // Перевіряємо, чи встановлений біт
+  
   return (info[byte_offset] & (1 << bit_pos)) != 0;
 }
 
@@ -106,10 +106,9 @@ void Pool<T, SIZE>::setBit(size_t bit_index) {
   if (bit_index >= SIZE)
     return;
 
-  size_t byte_offset = bit_index / BITS_IN_UINT8; // Визначаємо, в якому байті знаходиться біт
-  size_t bit_pos = bit_index % BITS_IN_UINT8;     // Залишок після ділення — позиція біта в байті
+  size_t byte_offset = bit_index / BITS_IN_UINT8; 
+  size_t bit_pos = bit_index % BITS_IN_UINT8;    
 
-  // Встановлюємо біт
   info[byte_offset] |= (1 << bit_pos);
 }
 
@@ -118,10 +117,9 @@ void Pool<T, SIZE>::clrBit(size_t bit_index) {
   if (bit_index >= SIZE)
     return;
 
-  size_t byte_offset = bit_index / BITS_IN_UINT8; // Визначаємо, в якому байті знаходиться біт
-  size_t bit_pos = bit_index % BITS_IN_UINT8;     // Залишок після ділення — позиція біта в байті
+  size_t byte_offset = bit_index / BITS_IN_UINT8; 
+  size_t bit_pos = bit_index % BITS_IN_UINT8;     
 
-  // Очищаємо біт
   info[byte_offset] &= ~(1 << bit_pos);
 }
 
